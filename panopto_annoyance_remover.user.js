@@ -4,7 +4,7 @@
 // @version      1.1
 // @description  Fixes many annoyances in Panopto. Space button now always controls the video.
 // @author       jaytohe
-// @match        https://uniofbath.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=*
+// @match        https://*.panopto.eu/Panopto/Pages/Viewer.aspx?id=*
 // @grant        none
 // @run-at       document-start
 // ==/UserScript==
