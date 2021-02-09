@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Panopto Annoyances Remover
 // @namespace    http://github.com/jaytohe/
-// @version      1.1
+// @version      1.1.1
 // @description  Fixes many annoyances in Panopto. Space button now always controls the video.
 // @author       jaytohe
 // @match        https://*.panopto.eu/Panopto/Pages/Viewer.aspx?id=*
