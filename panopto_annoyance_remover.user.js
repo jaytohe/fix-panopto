@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Panopto Annoyance Remover
+// @name         Panopto Annoyances Remover
 // @namespace    http://github.com/jaytohe/
-// @version      1.0
-// @description  Prevent Panopto from hijacking keyboard presses. Space button now always controls the video.
+// @version      1.1
+// @description  Fixes many annoyances in Panopto. Space button now always controls the video.
 // @author       jaytohe
 // @match        https://uniofbath.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=*
 // @grant        none
@@ -11,7 +11,7 @@
 
 (function() {
     'use strict';
-    const Forbidden = new Array('quickRewindButton','quickFastForwardButton','volumeControl', 'captionsButton', 'playButton', 'playSpeedButton', 'qualityButton', 'captionStyleOptions');
+    const BlackListIDs = ['quickRewindButton','quickFastForwardButton','volumeControl', 'captionsButton', 'playButton', 'playSpeedButton', 'qualityButton', 'captionStyleOptions'];
     document.addEventListener("keydown", function(event) {
         event.stopImmediatePropagation();
         if (event.keyCode == 32) {
@@ -22,9 +22,11 @@
      if (typeof val !== 'undefined') {
          const thumb_regex = /thumbnail\d+thumbnailList/g;
          const event_regex = /^event\d+$/g;
-        if ( Forbidden.includes(val)
+         const transcript_regex = /^UserCreatedTranscript-\d+$/g;
+        if ( BlackListIDs.includes(val)
             || thumb_regex.test(val)
             || event_regex.test(val)
+            || transcript_regex.test(val)
            ) {
                  return true;
         }
